@@ -6,6 +6,7 @@ Playground database for PostgreSQL inspired in the Northwind database with a few
 ## Similar Playground Databases
 
 * [Playground Database MySQL](https://github.com/NelsonBN/playground-database-mysql)
+* [Playground Database SQL Server](https://github.com/NelsonBN/playground-database-sqlserver)
 
 
 ## Scripts
