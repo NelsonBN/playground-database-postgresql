@@ -10,9 +10,9 @@ Playground database for PostgreSQL inspired in the Northwind database with a few
 
 ## Scripts
 
-* [`01-seed-gen-products.sql`](./src/01-seed-gen-products.sql) - Generates random products
-* [`02-seed-gen-customer.sql`](./src/02-seed-gen-customers.sql) - Generates random customers
-* [`03-seed-gen-orders.sql`](./src/03-seed-gen-orders.sql) - Generates random orders and order details
+* [To generate Products](./src/01-seed-gen-products.sql) - Generates random products
+* [To generate Customers](./src/02-seed-gen-customers.sql) - Generates random customers
+* [To generate Orders](./src/03-seed-gen-orders.sql) - Generates random orders and order details
 
 
 ## Dataset
