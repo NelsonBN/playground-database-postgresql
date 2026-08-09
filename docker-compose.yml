@@ -1,0 +1,48 @@
+networks:
+  demo:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:17.5-alpine3.20
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: northwind
+      POSTGRES_USER: demouser
+      POSTGRES_PASSWORD: a123456789
+    volumes:
+      - ./data/01-init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./data/02-seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    networks:
+      - demo
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "northwind", "-U", "demouser"]
+      interval: 15s
+      timeout: 30s
+      retries: 5
+
+  pgweb:
+    image: sosedoff/pgweb:0.17.0
+    container_name: pgweb
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - PGWEB_DATABASE_URL=postgres://demouser:a123456789@postgres:5432/northwind?sslmode=disable
+    networks:
+      - demo
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -f http://localhost:8081 || exit 1"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
