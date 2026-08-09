@@ -17,17 +17,9 @@ Playground database for PostgreSQL inspired in the Northwind database with a few
 
 ## Dataset
 
-| Table         | Total  |
-|---------------|--------|
-| countries     | 249    |
-| categories    | 20     |
-| shippers      | 25     |
-| customers     | 500    |
-| employees     | 25     |
-| suppliers     | 500    |
-| products      | 3 746  |
-| orders        | 4 935  |
-| order_details | 17 385 |
+| countries | categories | shippers | customers | employees | suppliers | products | orders | order_details |
+|:---------:|:----------:|:--------:|:---------:|:---------:|:---------:|:--------:|:------:|:-------------:|
+| 249       | 20         | 25       | 500       | 25        | 500       | 3 746    | 4 935  | 17 385        |
 
 
 ## Schema
